@@ -1,0 +1,50 @@
+name: Feature request / 功能建议
+description: 想要某个能力，或现有行为不合理
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        描述**你想解决的问题**，而不是你想加的功能。
+        「手机上没法定时把截图同步到电脑某个文件夹」比「加个定时器功能」有用得多——
+        前者能引出几种方案，后者往往只能回答"已收到"。
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你想解决什么 / What problem are you trying to solve
+      description: 现在的做法是什么，为什么别扭。
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你想到的做法 / What you have in mind
+      description: 有具体方案当然好，没有也行——上面那条才是关键。
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 试过什么别的办法吗 / Alternatives you have tried
+      description: 有时候"现有功能组合起来"就够了，那说明是文档没写清楚。
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 大致范围 / Rough scope
+      description: 只是个方向判断，不是承诺
+      options:
+        - 不确定 / Not sure
+        - 小改动，几小时内能做完 / Small
+        - 中等，涉及一整块功能 / Medium
+        - 大，涉及协议或架构 / Large
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 确认 / Please confirm
+      options:
+        - label: 我知道本项目闭源，功能建议不保证会被实现
+          required: true

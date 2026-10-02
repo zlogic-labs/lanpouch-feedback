@@ -1,0 +1,108 @@
+name: Bug report / 缺陷报告
+description: 某处功能不工作、结果不对，或文件传输出了问题
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        先看 [README 的「报 bug 前请先看」](https://github.com/zlogic-labs/lanpouch-feedback#报-bug-前请先看)——
+        大部分"连不上"是网络环境（访客网络、AP 隔离、跨子网）而不是缺陷。
+
+        **安全问题请不要用这个模板**，发邮件到 support@zlogic.run。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 发生了什么 / What happened
+      description: 实际观察到的现象，而不是你的推测。写"没反应"还是"显示了进度条然后卡在 87%"
+        差别很大。
+      placeholder: |
+        扫描后列表里出现了电脑，点进去选文件夹，选完点上传……
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 你期望发生什么 / What you expected instead
+    validations:
+      required: true
+
+  - type: dropdown
+    id: where
+    attributes:
+      label: 哪一端 / Which end
+      options:
+        - 桌面端 / Desktop
+        - 手机端 / Mobile
+        - 两端都有问题 / Both
+    validations:
+      required: true
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: 卡在哪一步 / Which step
+      options:
+        - 扫码配对 / Pairing via QR
+        - 手动输入地址 / Manual address entry
+        - 选择文件或文件夹 / Choosing files
+        - 上传 / Sending to computer
+        - 同步（电脑→手机）/ Sync, computer to phone
+        - 投递 / Delivery
+        - 落盘后文件不对 / Files wrong after landing
+        - 界面显示 / UI only
+    validations:
+      required: true
+
+  - type: input
+    id: versions
+    attributes:
+      label: 版本 / Versions
+      description: 两端都要。手机端在「设置 → 关于」，桌面端在左下角。
+      placeholder: "desktop 0.1.0 / mobile 1.0.0+1"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: 系统 / Operating systems
+      description: 电脑系统版本 + 手机型号与系统版本。
+      placeholder: "Windows 11 23H2 / Pixel 8, Android 15"
+    validations:
+      required: true
+
+  - type: textarea
+    id: network
+    attributes:
+      label: 网络拓扑 / Network topology
+      description: |
+        这一项最关键。同一个现象在"同一网段"和"开了访客网络"下原因完全不同。
+
+        - 电脑接网线还是 WiFi？
+        - 手机连的是哪个 SSID？和电脑是同一台路由器吗？
+        - 路由器的访客网络开了吗？AP 隔离（客户端隔离）开了吗？
+        - 手机用的是 WiFi 还是 5G/蜂窝数据？
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志 / Logs
+      description: |
+        桌面端：应用数据目录下的 `lanpouch.log`
+        手机端：应用内「日志」页，可复制
+        贴日志前请删掉里面的本地路径和文件名。
+      render: text
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 确认 / Please confirm
+      options:
+        - label: 我确认这不是安全问题（安全问题应发邮件）
+          required: true
+        - label: 我已读过 README 里的「报 bug 前请先看」

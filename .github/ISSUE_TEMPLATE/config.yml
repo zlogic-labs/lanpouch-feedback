@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🔒 安全问题请发邮件，不要开公开 issue / Security issue — email, not a public issue
+    url: mailto:support@zlogic.run
+    about: 公开 issue 会把可利用的细节在补丁发布前交给所有人。
+  - name: 产品主页 / Product home
+    url: https://lanpouch.zlogic.run
+    about: 功能介绍与下载入口。
